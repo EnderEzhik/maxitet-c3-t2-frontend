@@ -9,8 +9,9 @@ export function renderTodos(todos, listElement) {
     }
     todos.forEach(todo => {
         const li = document.createElement("li");
-        // li.textContent = todo.text;
-        // li.className = todo.completed ? "completed" : "";
+        if (todo.completed) {
+            li.classList.add("completed");
+        }
         li.innerHTML = `
             <span class="todo-text">${todo.text}</span>
             <div class="actions">
@@ -22,23 +23,6 @@ export function renderTodos(todos, listElement) {
                 </button>
             </div>
         `;
-        if (todo.completed) {
-            li.classList.add("completed");
-        }
-        // const textSpan = document.createElement("span");
-        // textSpan.classList.add("todo-text");
-        // textSpan.textContent = todo.text;
-        // const toggleButton = document.createElement("button");
-        // toggleButton.textContent = todo.completed ? "Вернуть" : "Готово";
-        // toggleButton.dataset.id = todo.id.toString();
-        // toggleButton.classList.add("toggle-btn");
-        // const deleteButton = document.createElement("button");
-        // deleteButton.textContent = "Удалить";
-        // deleteButton.dataset.id = todo.id.toString();
-        // deleteButton.classList.add("delete-btn");
-        // li.appendChild(textSpan);
-        // li.appendChild(toggleButton);
-        // li.appendChild(deleteButton);
         listElement.appendChild(li);
     });
     updateCounters(todos);

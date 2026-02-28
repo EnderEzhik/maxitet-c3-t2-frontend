@@ -1,4 +1,4 @@
-const STORAGE_KEY = "";
+const STORAGE_KEY = "todos";
 export function saveTodos(todos) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
 }
